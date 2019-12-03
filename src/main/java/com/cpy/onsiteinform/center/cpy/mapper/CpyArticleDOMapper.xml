@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cpy.onsiteinform.center.cpy.mapper.CpyArticleDOMapper">
+  <resultMap id="BaseResultMap" type="com.cpy.onsiteinform.center.cpy.entity.CpyArticleDO">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="keyword" jdbcType="VARCHAR" property="keyword" />
+    <result column="digest" jdbcType="VARCHAR" property="digest" />
+    <result column="tags" jdbcType="VARCHAR" property="tags" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="pics" jdbcType="VARCHAR" property="pics" />
+    <result column="category_ids" jdbcType="VARBINARY" property="categoryIds" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    id, title, keyword, digest, tags, status, create_time, update_time,content,pics,category_ids
+  </sql>
+  <select id="queryListByParam" resultMap="BaseResultMap">
+    select * from cpy_article
+    where 1=1
+    <if test="status != null ">
+      and status = #{status}
+    </if>
+    <if test="categoryId != null ">
+      and category_ids like CONCAT('%', #{categoryId}, '%')
+    </if>
+    <if test="title != null ">
+      and title like CONCAT('%', #{title}, '%')
+    </if>
+  </select>
+</mapper>

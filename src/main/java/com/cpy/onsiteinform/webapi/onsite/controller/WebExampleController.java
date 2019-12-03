@@ -1,4 +1,4 @@
-package com.cpy.onsiteinform.webapi.controller;
+package com.cpy.onsiteinform.webapi.onsite.controller;
 
 import com.cpy.onsiteinform.framework.ApiResponse;
 import com.cpy.onsiteinform.framework.BaseController;

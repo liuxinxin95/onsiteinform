@@ -1,4 +1,4 @@
-package com.cpy.onsiteinform.mngapi.vo;
+package com.cpy.onsiteinform.mngapi.onsite.vo;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;

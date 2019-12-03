@@ -8,6 +8,7 @@ import tk.mybatis.spring.annotation.MapperScan;
 
 @SpringBootApplication
 @MapperScan({"com.cpy.onsiteinform.center"})
+//@MapperScan({"com.cpy.onsiteinform.center.**.mapper"})
 public class OnsiteInformApplication {
     @Bean
     public BCryptPasswordEncoder bCryptPasswordEncoder() {

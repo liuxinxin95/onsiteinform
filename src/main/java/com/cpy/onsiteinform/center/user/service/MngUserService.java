@@ -1,7 +1,7 @@
 package com.cpy.onsiteinform.center.user.service;
 
-import com.cpy.onsiteinform.mngapi.param.UserParam;
-import com.cpy.onsiteinform.mngapi.vo.LoginVO;
+import com.cpy.onsiteinform.mngapi.onsite.param.UserParam;
+import com.cpy.onsiteinform.mngapi.onsite.vo.LoginVO;
 
 /**
  * @author Carl

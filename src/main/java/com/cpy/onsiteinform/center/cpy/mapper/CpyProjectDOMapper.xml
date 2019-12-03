@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cpy.onsiteinform.center.cpy.mapper.CpyProjectDOMapper">
+  <resultMap id="BaseResultMap" type="com.cpy.onsiteinform.center.cpy.entity.CpyProjectDO">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="keyword" jdbcType="VARCHAR" property="keyword" />
+    <result column="digest" jdbcType="VARCHAR" property="digest" />
+    <result column="succeed_url" jdbcType="VARCHAR" property="succeedUrl" />
+    <result column="is_open" jdbcType="TINYINT" property="isOpen" />
+    <result column="pwds" jdbcType="VARCHAR" property="pwds" />
+    <result column="pc" jdbcType="TINYINT" property="pc" />
+    <result column="iphone" jdbcType="TINYINT" property="iphone" />
+    <result column="ipad" jdbcType="TINYINT" property="ipad" />
+    <result column="pc_url" jdbcType="VARCHAR" property="pcUrl" />
+    <result column="iphone_url" jdbcType="VARCHAR" property="iphoneUrl" />
+    <result column="ipad_url" jdbcType="VARCHAR" property="ipadUrl" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="content" jdbcType="LONGVARCHAR" property="content" />
+    <result column="pics" jdbcType="LONGVARCHAR" property="pics" />
+    <result column="category_ids" jdbcType="VARBINARY" property="categoryIds" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    id, title, keyword, digest, succeed_url, is_open, pwds, pc, iphone, ipad, pc_url, 
+    iphone_url, ipad_url, status, create_time, update_time, content, pics, category_ids
+  </sql>
+  <select id="queryListByParam" resultMap="BaseResultMap">
+    select * from cpy_project
+    where 1=1
+    <if test="status != null ">
+      and status = #{status}
+    </if>
+    <if test="categoryId != null ">
+      and category_ids like CONCAT('%', #{categoryId}, '%')
+    </if>
+    <if test="title != null and title !=''">
+      and title like CONCAT('%', #{title}, '%')
+    </if>
+
+  </select>
+</mapper>

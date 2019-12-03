@@ -1,10 +1,10 @@
-package com.cpy.onsiteinform.mngapi.controller;
+package com.cpy.onsiteinform.mngapi.onsite.controller;
 
 import com.cpy.onsiteinform.center.user.service.MngUserService;
 import com.cpy.onsiteinform.framework.ApiResponse;
 import com.cpy.onsiteinform.framework.BaseController;
-import com.cpy.onsiteinform.mngapi.param.UserParam;
-import com.cpy.onsiteinform.mngapi.vo.LoginVO;
+import com.cpy.onsiteinform.mngapi.onsite.param.UserParam;
+import com.cpy.onsiteinform.mngapi.onsite.vo.LoginVO;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 

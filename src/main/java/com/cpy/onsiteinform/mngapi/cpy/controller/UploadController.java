@@ -1,4 +1,4 @@
-package com.cpy.onsiteinform.mngapi.controller;
+package com.cpy.onsiteinform.mngapi.cpy.controller;
 
 import com.cpy.onsiteinform.framework.ApiResponse;
 import com.cpy.onsiteinform.framework.BaseController;
@@ -19,7 +19,7 @@ import org.springframework.web.multipart.MultipartFile;
  **/
 @Api("上传")
 @RestController
-@RequestMapping("mng/api/upload")
+@RequestMapping("mng/api/cpyUpload")
 public class UploadController extends BaseController {
 
     /**
@@ -28,7 +28,7 @@ public class UploadController extends BaseController {
     @ApiOperation("上传")
     @RequestMapping(value = "/uploadFile", method = RequestMethod.POST)
     public ApiResponse<String> uploadFile(@RequestParam("file") MultipartFile file) {
-        String upload = UploadUtil.upload(file);
+        String upload = UploadUtil.htmlUpload(file);
         return success(upload);
     }
 }

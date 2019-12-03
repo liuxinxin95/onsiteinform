@@ -1,4 +1,4 @@
-package com.cpy.onsiteinform.mngapi.controller;
+package com.cpy.onsiteinform.mngapi.onsite.controller;
 
 import com.cpy.onsiteinform.framework.ApiResponse;
 import com.cpy.onsiteinform.framework.BaseController;
