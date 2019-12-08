@@ -24,6 +24,9 @@ public class QueryContentInfoParam extends PageRequest {
     @ApiModelProperty(value = "状态：0待审核1已发布")
     private Integer status;
 
+    @ApiModelProperty(value = "是否删除：true删除 false未删除")
+    private Integer disable;
+
     @ApiModelProperty(value = "标题")
     private String title;
 

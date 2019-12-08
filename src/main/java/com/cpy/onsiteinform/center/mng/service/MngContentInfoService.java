@@ -21,9 +21,31 @@ public interface MngContentInfoService {
     void save(MngContentInfoVO infoVO);
 
     /**
+     * 修改
+     *
+     * @param infoVO
+     */
+    void update(MngContentInfoVO infoVO);
+
+    /**
      * 列表查询
      *
      * @param param
      */
     PageInfo<MngContentInfoVO> getPage(QueryContentInfoParam param);
+
+    /**
+     * 审核发布
+     *
+     * @param id
+     */
+    void audit(Integer id);
+
+
+    /**
+     * 删除
+     *
+     * @param id
+     */
+    void delete(Integer id);
 }
