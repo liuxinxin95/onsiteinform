@@ -1,4 +1,4 @@
-package com.cpy.onsiteinform.mngapi.cpy.vo;
+package com.cpy.onsiteinform.mngapi.onsite.vo;
 
 import com.cpy.onsiteinform.util.TreeNode;
 import io.swagger.annotations.ApiModel;

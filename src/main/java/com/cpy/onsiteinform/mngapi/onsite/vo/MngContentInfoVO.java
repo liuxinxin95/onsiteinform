@@ -1,118 +1,130 @@
-package com.cpy.onsiteinform.center.mng.entity;
+package com.cpy.onsiteinform.mngapi.onsite.vo;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 import java.io.Serializable;
 import java.util.Date;
-import javax.persistence.*;
+import java.util.List;
 
-@Table(name = "mng_content_info")
-public class MngContentInfoDO implements Serializable {
-    @Id
+@ApiModel
+public class MngContentInfoVO implements Serializable {
+
+    @ApiModelProperty(value = "id")
     private Integer id;
 
     /**
      * 标题
      */
+    @ApiModelProperty(value = "标题")
     private String title;
 
     /**
      * 一级分类ID
      */
-    @Column(name = "top_category_id")
+    @ApiModelProperty(value = "一级分类ID")
     private Integer topCategoryId;
 
     /**
      * 分类ID
      */
-    @Column(name = "category_id")
+    @ApiModelProperty(value = "分类ID")
     private Integer categoryId;
 
     /**
      * 缩略图
      */
-    @Column(name = "breviary_pic")
+    @ApiModelProperty(value = "缩略图")
     private String breviaryPic;
 
     /**
      * 中文演示地址
      */
-    @Column(name = "zh_demo_url")
+    @ApiModelProperty(value = "中文演示地址")
     private String zhDemoUrl;
 
     /**
      * 英文演示地址
      */
-    @Column(name = "eg_demo_url")
+    @ApiModelProperty(value = "英文演示地址")
     private String egDemoUrl;
 
     /**
      * 百度网盘地址
      */
-    @Column(name = "baidu_netdisk_url")
+    @ApiModelProperty(value = "百度网盘地址")
     private String baiduNetdiskUrl;
 
     /**
      * 百度网盘密码
      */
-    @Column(name = "baidu_netdisk_pwd")
+    @ApiModelProperty(value = "百度网盘密码")
     private String baiduNetdiskPwd;
 
     /**
      * seo关键字
      */
-    @Column(name = "seo_keyword")
+    @ApiModelProperty(value = "seo关键字")
     private String seoKeyword;
 
     /**
      * seo标题
      */
-    @Column(name = "seo_title")
+    @ApiModelProperty(value = "seo标题")
     private String seoTitle;
 
     /**
      * seo描述
      */
-    @Column(name = "seo_digest")
+    @ApiModelProperty(value = "seo描述")
     private String seoDigest;
 
     /**
      * 标签集合
      */
-    private String tags;
+    @ApiModelProperty(value = "标签集合")
+    private List<String> tagList;
 
     /**
      * 状态：0待审核1已发布
      */
+    @ApiModelProperty(value = "状态：0待审核1已发布")
     private Integer status;
 
     /**
      * 是否删除：1删除 0未删除
      */
+    @ApiModelProperty(value = "是否删除：1删除 0未删除")
     private Boolean disable;
 
     /**
      * 创建时间
      */
-    @Column(name = "create_time")
+    @ApiModelProperty(value = "创建时间")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date createTime;
 
-    @Column(name = "update_time")
+    @ApiModelProperty(value = "修改时间")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date updateTime;
 
     /**
      * 内容
      */
+    @ApiModelProperty(value = "内容")
     private String content;
 
     /**
-     * 创建者
+     * 更新者
      */
-    @Column(name = "create_user")
+    @ApiModelProperty(value = "更新者")
     private Long createUser;
 
     /**
      * 更新者
      */
-    @Column(name = "update_user")
+    @ApiModelProperty(value = "更新者")
     private Long updateUser;
 
     /**
@@ -327,23 +339,6 @@ public class MngContentInfoDO implements Serializable {
         this.seoDigest = seoDigest == null ? null : seoDigest.trim();
     }
 
-    /**
-     * 获取标签集合
-     *
-     * @return tags - 标签集合
-     */
-    public String getTags() {
-        return tags;
-    }
-
-    /**
-     * 设置标签集合
-     *
-     * @param tags 标签集合
-     */
-    public void setTags(String tags) {
-        this.tags = tags == null ? null : tags.trim();
-    }
 
     /**
      * 获取状态：0待审核1已发布
@@ -429,6 +424,14 @@ public class MngContentInfoDO implements Serializable {
      */
     public void setContent(String content) {
         this.content = content == null ? null : content.trim();
+    }
+
+    public List<String> getTagList() {
+        return tagList;
+    }
+
+    public void setTagList(List<String> tagList) {
+        this.tagList = tagList;
     }
 
     public Long getCreateUser() {

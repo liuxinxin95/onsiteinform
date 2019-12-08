@@ -23,6 +23,7 @@ import java.io.File;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Service
@@ -46,21 +47,24 @@ public class CpyProjectServiceImpl implements CpyProjectService {
     @Override
     public PageInfo<CpyProjectVO> queryList(QueryProjectParam param) {
 
-        PageInfo<CpyProjectVO> pageInfo = PageHelper.startPage(param.getPageNum(),
+        PageInfo<CpyProjectDO> pageInfo = PageHelper.startPage(param.getPageNum(),
                 param.getPageSize()).doSelectPageInfo(() -> cpyProjectDao.queryListByParam(param));
-        List<CpyProjectVO> cpyProjectVOS = BeanMapUtil.convertList(pageInfo.getList(), CpyProjectVO.class);
-        pageInfo.setList(cpyProjectVOS);
 
-        pageInfo.getList().stream().forEach(x -> {
+        List<CpyProjectVO> list = pageInfo.getList().stream().map(x -> {
+            CpyProjectVO cpyProjectVO = BeanMapUtil.convertObject(x, CpyProjectVO.class);
+            cpyProjectVO.setCategoryIdList(Arrays.asList(x.getCategoryIds(), ","));
+            cpyProjectVO.setPicList(Arrays.asList(x.getPics(), ","));
             CpyProjectBrowseDO cpyProjectBrowse = cpyProjectBrowseService.queryObject(x.getId());
             if (cpyProjectBrowse != null) {
-                x.setBrowseNum(cpyProjectBrowse.getBrowseNum());
+                cpyProjectVO.setBrowseNum(cpyProjectBrowse.getBrowseNum());
             } else {
-                x.setBrowseNum(0);
+                cpyProjectVO.setBrowseNum(0);
             }
-        });
-
-        return pageInfo;
+            return cpyProjectVO;
+        }).collect(Collectors.toList());
+        PageInfo<CpyProjectVO> voPageInfo = BeanMapUtil.convertObject(pageInfo, PageInfo.class);
+        voPageInfo.setList(list);
+        return voPageInfo;
     }
 
 

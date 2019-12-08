@@ -2,6 +2,8 @@ package com.cpy.onsiteinform.center.cpy.service;
 
 import com.cpy.onsiteinform.center.cpy.entity.CpyArticleDO;
 import com.cpy.onsiteinform.mngapi.cpy.param.QueryArticleParam;
+import com.cpy.onsiteinform.mngapi.cpy.vo.CpyArticleVO;
+import com.github.pagehelper.PageInfo;
 
 import java.util.List;
 
@@ -25,7 +27,7 @@ public interface CpyArticleService {
      * @param map
      * @return
      */
-    List<CpyArticleDO> queryList(QueryArticleParam param);
+    PageInfo<CpyArticleVO> queryList(QueryArticleParam param);
 
     /**
      * 保存

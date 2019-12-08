@@ -1,6 +1,5 @@
 package com.cpy.onsiteinform.mngapi.cpy.controller;
 
-import com.cpy.onsiteinform.center.cpy.entity.CpyArticleBrowseDO;
 import com.cpy.onsiteinform.center.cpy.entity.CpyArticleDO;
 import com.cpy.onsiteinform.center.cpy.service.CpyArticleBrowseService;
 import com.cpy.onsiteinform.center.cpy.service.CpyArticleService;
@@ -9,7 +8,6 @@ import com.cpy.onsiteinform.framework.BaseController;
 import com.cpy.onsiteinform.mngapi.cpy.param.QueryArticleParam;
 import com.cpy.onsiteinform.mngapi.cpy.vo.CpyArticleVO;
 import com.cpy.onsiteinform.util.BeanMapUtil;
-import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -20,7 +18,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.Arrays;
-import java.util.List;
 
 /**
  * @author liuxinxin
@@ -47,21 +44,7 @@ public class CpyArticleController extends BaseController {
     @ApiOperation("列表(后台)")
     @RequestMapping(value = "/list", method = RequestMethod.POST)
     public ApiResponse<PageInfo<CpyArticleVO>> list(@RequestBody QueryArticleParam param) {
-        //查询列表数据
-        PageInfo<CpyArticleVO> pageInfo = PageHelper.startPage(param.getPageNum(),
-                param.getPageSize()).doSelectPageInfo(() -> BeanMapUtil.convertList(cpyArticleService.queryList(param), CpyArticleVO.class));
-        List<CpyArticleVO> cpyArticleVOS = BeanMapUtil.convertList(pageInfo.getList(), CpyArticleVO.class);
-        pageInfo.setList(cpyArticleVOS);
-
-        pageInfo.getList().stream().forEach(x -> {
-            CpyArticleBrowseDO cpyArticleBrowse = cpyArticleBrowseService.queryObject(x.getId());
-            if (cpyArticleBrowse != null) {
-                x.setBrowseNum(cpyArticleBrowse.getBrowseNum());
-            } else {
-                x.setBrowseNum(0);
-            }
-        });
-        return success(pageInfo);
+        return success(cpyArticleService.queryList(param));
     }
 
 

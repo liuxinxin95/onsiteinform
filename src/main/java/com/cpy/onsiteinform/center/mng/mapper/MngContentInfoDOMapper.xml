@@ -23,6 +23,8 @@
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
     <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="create_user" jdbcType="BIGINT" property="createUser" />
+    <result column="update_user" jdbcType="BIGINT" property="updateUser" />
   </resultMap>
 
   <sql id="Base_Column_List">
@@ -31,6 +33,29 @@
     -->
     id, title, top_category_id, category_id, breviary_pic, zh_demo_url, eg_demo_url, 
     baidu_netdisk_url, baidu_netdisk_pwd, seo_keyword, seo_title, seo_digest, tags, status, 
-    disable, create_time, update_time,content
+    disable, create_time, update_time,content,createUser,updateUser
   </sql>
+
+  <select id="selectByParam" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List"/> from mng_content_info
+    where top_category_id = #{topCategoryId}
+    <if test="status != null">
+      and status = #{status}
+    </if>
+    <if test="title != null and title != ''">
+      and title like CONCAT('%', #{title}, '%')
+    </if>
+    <if test="categoryId != null">
+      and category_id = #{categoryId}
+    </if>
+     <if test="queryStartTime != null">
+      and category_id = #{categoryId}
+    </if>
+    <if test="queryStartTime!=null">
+      and create_time <![CDATA[>=]]> #{queryStartTime}
+    </if>
+    <if test="queryEndTime!=null">
+      and #{queryEndTime} <![CDATA[>=]]> create_time
+    </if>
+  </select>
 </mapper>

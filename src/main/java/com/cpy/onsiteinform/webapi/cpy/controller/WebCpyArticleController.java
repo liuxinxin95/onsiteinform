@@ -48,20 +48,7 @@ public class WebCpyArticleController extends BaseController {
     @RequestMapping(value = "/list", method = RequestMethod.POST)
     public ApiResponse<PageInfo<CpyArticleVO>> list(@RequestBody QueryArticleParam param) {
         //查询列表数据
-        PageInfo<CpyArticleVO> pageInfo = PageHelper.startPage(param.getPageNum(),
-                param.getPageSize()).doSelectPageInfo(() -> BeanMapUtil.convertList(cpyArticleService.queryList(param), CpyArticleVO.class));
-        List<CpyArticleVO> cpyArticleVOS = BeanMapUtil.convertList(pageInfo.getList(), CpyArticleVO.class);
-        pageInfo.setList(cpyArticleVOS);
-
-        pageInfo.getList().stream().forEach(x -> {
-            CpyArticleBrowseDO cpyArticleBrowse = cpyArticleBrowseService.queryObject(x.getId());
-            if (cpyArticleBrowse != null) {
-                x.setBrowseNum(cpyArticleBrowse.getBrowseNum());
-            } else {
-                x.setBrowseNum(0);
-            }
-        });
-        return success(pageInfo);
+        return success(cpyArticleService.queryList(param));
     }
 
 

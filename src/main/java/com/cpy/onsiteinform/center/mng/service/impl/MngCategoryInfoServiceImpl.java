@@ -6,7 +6,7 @@ import com.cpy.onsiteinform.center.mng.service.MngCategoryInfoService;
 import com.cpy.onsiteinform.common.SysUser;
 import com.cpy.onsiteinform.common.UserContext;
 import com.cpy.onsiteinform.exception.RRException;
-import com.cpy.onsiteinform.mngapi.cpy.vo.MngCategoryInfoVO;
+import com.cpy.onsiteinform.mngapi.onsite.vo.MngCategoryInfoVO;
 import com.cpy.onsiteinform.util.BeanMapUtil;
 import com.cpy.onsiteinform.util.TreeUtil;
 import org.springframework.context.annotation.Primary;

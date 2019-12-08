@@ -4,6 +4,7 @@ package com.cpy.onsiteinform.util;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +13,7 @@ import java.util.List;
  * @date 2017年11月9日23:33:45
  */
 @ApiModel
-public class TreeNode {
+public class TreeNode implements Serializable {
     @ApiModelProperty(value = "id" )
     protected Integer id;
     @ApiModelProperty(value = "父菜单id" )

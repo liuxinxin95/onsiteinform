@@ -1,6 +1,6 @@
 package com.cpy.onsiteinform.center.mng.service;
 
-import com.cpy.onsiteinform.mngapi.cpy.vo.MngCategoryInfoVO;
+import com.cpy.onsiteinform.mngapi.onsite.vo.MngCategoryInfoVO;
 
 import java.util.List;
 
