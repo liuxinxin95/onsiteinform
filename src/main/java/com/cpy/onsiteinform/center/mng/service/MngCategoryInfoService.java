@@ -33,4 +33,26 @@ public interface MngCategoryInfoService {
      * @return
      */
     List<MngCategoryInfoVO> getCategoryTree();
+
+    /**
+     * 添加
+     *
+     * @param infoVO
+     */
+    void saveCategory(MngCategoryInfoVO infoVO);
+
+
+    /**
+     * 修改
+     *
+     * @param infoVO
+     */
+    void updateCategory(MngCategoryInfoVO infoVO);
+
+    /**
+     * 删除
+     *
+     * @param infoVO
+     */
+    void deleteCategory(Integer id);
 }

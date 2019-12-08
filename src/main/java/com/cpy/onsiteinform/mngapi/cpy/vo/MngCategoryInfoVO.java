@@ -15,12 +15,6 @@ public class MngCategoryInfoVO extends TreeNode {
     @ApiModelProperty(value = "分类名")
     private String name;
 
-
-    /**
-     * 是否有效:1-有效 0-无效
-     */
-    private Boolean valid;
-
     /**
      * 创建时间
      */
@@ -93,24 +87,6 @@ public class MngCategoryInfoVO extends TreeNode {
      */
     public void setParentId(Integer parentId) {
         this.parentId = parentId;
-    }
-
-    /**
-     * 获取是否有效:1-有效 0-无效
-     *
-     * @return valid - 是否有效:1-有效 0-无效
-     */
-    public Boolean getValid() {
-        return valid;
-    }
-
-    /**
-     * 设置是否有效:1-有效 0-无效
-     *
-     * @param valid 是否有效:1-有效 0-无效
-     */
-    public void setValid(Boolean valid) {
-        this.valid = valid;
     }
 
     /**
