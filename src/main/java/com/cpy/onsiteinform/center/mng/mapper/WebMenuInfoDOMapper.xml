@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.cpy.onsiteinform.center.web.mapper.webMenuInfoDoMapper">
-  <resultMap id="BaseResultMap" type="com.cpy.onsiteinform.center.web.entity.webMenuInfoDo">
+<mapper namespace="com.cpy.onsiteinform.center.mng.mapper.WebMenuInfoDOMapper">
+  <resultMap id="BaseResultMap" type="com.cpy.onsiteinform.center.mng.entity.WebMenuInfoDO">
     <!--
       WARNING - @mbg.generated
     -->

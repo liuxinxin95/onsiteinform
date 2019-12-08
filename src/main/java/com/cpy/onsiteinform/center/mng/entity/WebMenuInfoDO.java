@@ -1,10 +1,10 @@
-package com.cpy.onsiteinform.center.web.entity;
+package com.cpy.onsiteinform.center.mng.entity;
 
 import java.util.Date;
 import javax.persistence.*;
 
 @Table(name = "web_menu_info")
-public class webMenuInfoDo {
+public class WebMenuInfoDO {
     /**
      * 自增ID
      */
