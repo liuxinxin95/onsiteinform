@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.cpy.onsiteinform.center.mng.mappr.mngContentInfoDoMapper">
-  <resultMap id="BaseResultMap" type="com.cpy.onsiteinform.center.mng.entity.mngContentInfoDo">
+<mapper namespace="com.cpy.onsiteinform.center.mng.mapper.MngContentInfoDOMapper">
+  <resultMap id="BaseResultMap" type="com.cpy.onsiteinform.center.mng.entity.MngContentInfoDO">
     <!--
       WARNING - @mbg.generated
     -->
@@ -22,25 +22,15 @@
     <result column="disable" jdbcType="BIT" property="disable" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.cpy.onsiteinform.center.mng.entity.mngContentInfoDo">
-    <!--
-      WARNING - @mbg.generated
-    -->
-    <result column="content" jdbcType="LONGVARCHAR" property="content" />
-  </resultMap>
+
   <sql id="Base_Column_List">
     <!--
       WARNING - @mbg.generated
     -->
     id, title, top_category_id, category_id, breviary_pic, zh_demo_url, eg_demo_url, 
     baidu_netdisk_url, baidu_netdisk_pwd, seo_keyword, seo_title, seo_digest, tags, status, 
-    disable, create_time, update_time
-  </sql>
-  <sql id="Blob_Column_List">
-    <!--
-      WARNING - @mbg.generated
-    -->
-    content
+    disable, create_time, update_time,content
   </sql>
 </mapper>

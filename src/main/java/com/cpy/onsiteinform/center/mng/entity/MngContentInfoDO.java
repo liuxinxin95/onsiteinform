@@ -4,7 +4,7 @@ import java.util.Date;
 import javax.persistence.*;
 
 @Table(name = "mng_content_info")
-public class mngContentInfoDo {
+public class MngContentInfoDO {
     @Id
     private Integer id;
 

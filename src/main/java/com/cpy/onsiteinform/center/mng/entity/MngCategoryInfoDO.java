@@ -4,7 +4,7 @@ import java.util.Date;
 import javax.persistence.*;
 
 @Table(name = "mng_category_info")
-public class mngCategoryInfoDo {
+public class MngCategoryInfoDO {
     /**
      * 自增ID
      */
