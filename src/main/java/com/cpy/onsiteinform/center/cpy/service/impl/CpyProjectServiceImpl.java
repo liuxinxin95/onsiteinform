@@ -102,6 +102,9 @@ public class CpyProjectServiceImpl implements CpyProjectService {
     @Override
     public CpyProjectVO projectDetail(Integer id) {
         CpyProjectDO cpyProject = cpyProjectDao.selectByPrimaryKey(id);
+        if (cpyProject == null){
+            return null;
+        }
         CpyProjectBrowseDO cpyProjectBrowse = cpyProjectBrowseService.queryObject(cpyProject.getId());
         if (cpyProjectBrowse != null) {
             cpyProjectBrowse.setBrowseNum(cpyProjectBrowse.getBrowseNum() + 1);
